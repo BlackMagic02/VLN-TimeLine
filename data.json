@@ -1,0 +1,2304 @@
+{
+  "eras": [
+    {
+      "name": "基础奠基期",
+      "range": "2017–2018 · VLN任务定义与初始探索",
+      "papers": [
+        {
+          "date": "2017-09",
+          "title": "Matterport3D Dataset",
+          "venue": "3DV 2017",
+          "authors": "Chang et al.",
+          "description": "发布大规模室内3D数据集（90个真实建筑场景），为VLN提供了视觉基础。包含10,800张全景RGB-D图像。",
+          "tags": [
+            "Dataset"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/1709.06158",
+          "project_url": "https://niessner.github.io/Matterport/",
+          "citations": 2500,
+          "affiliation": "Princeton",
+          "concepts": [
+            "RGB-D Panorama",
+            "Indoor 3D Dataset"
+          ]
+        },
+        {
+          "date": "2017-11",
+          "title": "R2R: Room-to-Room",
+          "venue": "CVPR 2018",
+          "authors": "Anderson et al.",
+          "description": "<strong>开创性工作</strong>：首次定义VLN任务，发布Matterport3D Simulator和Room-to-Room (R2R)数据集。包含21,567条自然语言导航指令，平均29词。建立了Seq2Seq基线模型和标准评估指标（SR, SPL等）。这篇论文正式开创了VLN研究领域。",
+          "tags": [
+            "Dataset",
+            "Model"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/1711.07280",
+          "project_url": "https://bringmeaspoon.org/",
+          "citations": 1800,
+          "affiliation": "Georgia Tech",
+          "concepts": [
+            "VLN Task Definition",
+            "Seq2Seq Baseline",
+            "SR / SPL Metrics"
+          ]
+        },
+        {
+          "date": "2018-06",
+          "title": "Speaker-Follower",
+          "venue": "NeurIPS 2018",
+          "authors": "Fried et al.",
+          "description": "提出Speaker-Follower框架：(1) Speaker模型生成合成指令用于数据增强；(2) 全景动作空间（Panoramic Action Space）替代离散视角；(3) 实用推理（Pragmatic Reasoning）。成功率翻倍，奠定了数据增强范式。",
+          "tags": [
+            "Model"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/1806.02724",
+          "code_url": "https://github.com/ronghanghu/speaker_follower",
+          "citations": 800,
+          "affiliation": "UC Berkeley",
+          "concepts": [
+            "Panoramic Action Space",
+            "Speaker Data Augmentation",
+            "Pragmatic Reasoning"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "方法探索期",
+      "range": "2019 · 训练策略、数据增强与新任务涌现",
+      "papers": [
+        {
+          "date": "2019-01",
+          "title": "Self-Monitoring Agent",
+          "venue": "ICLR 2019",
+          "authors": "Ma et al.",
+          "description": "引入自监控机制：视觉-文本共基奠定模块（co-grounding）+ 进度监控器（Progress Monitor），估计导航完成进度。在未见测试集上提升8%成功率。首次引入导航进度估计的概念。",
+          "tags": [
+            "Model"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/1901.03035"
+        },
+        {
+          "date": "2019-02",
+          "title": "Regretful Agent",
+          "venue": "CVPR 2019",
+          "authors": "Ma et al.",
+          "description": "将导航视为图搜索：利用进度监控器作为启发式函数，引入回退机制（Regret Module），允许智能体学习回退到先前位置。结合进度标记（Progress Marker），避免重复访问。SPL提升8%。",
+          "tags": [
+            "Model"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/1903.01602"
+        },
+        {
+          "date": "2019-02",
+          "title": "RCM (Reinforced Cross-Modal Matching)",
+          "venue": "CVPR 2019",
+          "authors": "Wang et al.",
+          "description": "提出强化跨模态匹配框架：使用匹配评论家（Matching Critic）提供内在奖励，鼓励指令与轨迹的全局匹配。引入自监督模仿学习（SIL）。SPL提升10%。",
+          "tags": [
+            "Model"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/1811.10584"
+        },
+        {
+          "date": "2019-03",
+          "title": "TOUCHDOWN",
+          "venue": "CVPR 2019",
+          "authors": "Chen et al.",
+          "description": "首个户外VLN数据集：基于Google Street View的纽约城市街景导航，包含9,326条人工编写指令。包含导航和空间描述解析两个子任务。将VLN从室内扩展到户外场景。",
+          "tags": [
+            "Dataset",
+            "Outdoor"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/1811.12354",
+          "code_url": "https://github.com/lil-lab/touchdown",
+          "citations": 500,
+          "affiliation": "Cornell",
+          "concepts": [
+            "Outdoor Street-View VLN",
+            "Spatial Description Resolution"
+          ]
+        },
+        {
+          "date": "2019-04",
+          "title": "EnvDrop (Environmental Dropout)",
+          "venue": "NAACL 2019",
+          "authors": "Tan et al.",
+          "description": "提出\"环境Dropout\"方法：通过随机遮蔽视觉特征来模拟未见环境，结合反向翻译（Back Translation）生成新的路径-指令对。有效缓解了训练环境有限的问题。成为VLN数据增强的经典方法。",
+          "tags": [
+            "Model"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/1904.04195",
+          "code_url": "https://github.com/airsplay/R2R-EnvDrop",
+          "citations": 600,
+          "affiliation": "UNC Chapel Hill",
+          "concepts": [
+            "Environmental Dropout",
+            "Back Translation"
+          ]
+        },
+        {
+          "date": "2019-04",
+          "title": "Habitat: A Platform for Embodied AI Research",
+          "venue": "ICCV 2019",
+          "authors": "Savva et al.",
+          "description": "开源具身智能仿真平台：支持高速3D场景渲染（单GPU可达数千FPS），集成多种导航任务和数据集。成为VLN、ObjectNav等具身导航研究的标准仿真器。开发了Habitat Challenge年度竞赛，推动了具身导航的标准化评测。",
+          "tags": [
+            "Dataset"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/1904.01201",
+          "project_url": "https://aihabitat.org/",
+          "code_url": "https://github.com/facebookresearch/habitat-sim",
+          "citations": 2000,
+          "affiliation": "FAIR",
+          "concepts": [
+            "High-speed Sim",
+            "Embodied AI Platform",
+            "Habitat Challenge"
+          ]
+        },
+        {
+          "date": "2019-07",
+          "title": "CVDN (Vision-and-Dialog Navigation)",
+          "venue": "CoRL 2019",
+          "authors": "Thomason et al.",
+          "description": "引入对话式导航：智能体通过多轮人-人对话获取导航指引。路径长度是R2R的3倍，语言上下文近3倍。首次将多轮对话引入VLN。",
+          "tags": [
+            "Dataset"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/1907.04957",
+          "project_url": "https://cvdn.dev/",
+          "code_url": "https://github.com/mmurray/cvdn",
+          "citations": 400,
+          "affiliation": "UT Austin",
+          "concepts": [
+            "Dialog Navigation",
+            "Multi-turn Interaction"
+          ]
+        },
+        {
+          "date": "2019-09",
+          "title": "R4R (Room-for-Room)",
+          "venue": "NeurIPS 2019",
+          "authors": "Jain et al.",
+          "description": "长程VLN评估：通过拼接R2R路径创建更长轨迹，提出覆盖加权路径长度（CLS）和归一化动态时间规整（nDTW）指标。解决了SPL指标鼓励\"待在原地\"的缺陷，推动了更精确的VLN评估。",
+          "tags": [
+            "Dataset"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/1904.11322"
+        },
+        {
+          "date": "2019-11",
+          "title": "AuxRN (Auxiliary Reasoning Navigation)",
+          "venue": "CVPR 2020",
+          "authors": "Zhu et al.",
+          "description": "引入四个自监督辅助推理任务：轨迹复述、进度估计、朝向预测和轨迹一致性评估。辅助信号帮助智能体建立环境感知，大幅提升泛化能力。",
+          "tags": [
+            "Model"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/1911.07883"
+        },
+        {
+          "date": "2019-11",
+          "title": "DD-PPO: Decentralized Distributed PPO",
+          "venue": "ICLR 2020",
+          "authors": "Wijmans et al.",
+          "description": "分布式强化学习训练框架：在PointGoal导航中首次达到99.6%成功率（近乎完美）。证明了大规模RL训练在具身导航中的巨大价值，为后续导航研究提供了强基线。",
+          "tags": [
+            "Model"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/1911.00357",
+          "code_url": "https://github.com/facebookresearch/habitat-lab"
+        },
+        {
+          "date": "2019-12",
+          "title": "SoundSpaces",
+          "venue": "ECCV 2020",
+          "authors": "Chen et al.",
+          "description": "首次引入音频-视觉导航：在声学真实的3D环境中，智能体通过\"看\"和\"听\"来导航至声源目标。基于几何声学仿真，证明音频显著有助于具身导航。",
+          "tags": [
+            "Dataset",
+            "Multi-Modal"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/1912.11474",
+          "project_url": "https://soundspaces.org/"
+        }
+      ]
+    },
+    {
+      "name": "预训练与数据集扩展",
+      "range": "2020 · 预训练范式、连续环境与多语言",
+      "papers": [
+        {
+          "date": "2020-01",
+          "title": "Neural Topological SLAM",
+          "venue": "CVPR 2020",
+          "authors": "Chaplot et al.",
+          "description": "神经拓扑SLAM：结合图表示的高效长程规划和几何函数的在线建图能力，显式编码结构先验。首次将拓扑地图概念引入视觉导航，启发了后续DUET等工作。",
+          "tags": [
+            "Model",
+            "Mapping"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/2005.12256"
+        },
+        {
+          "date": "2020-02",
+          "title": "map2seq",
+          "venue": "ACL 2020",
+          "authors": "Schumann & Riezler",
+          "description": "户外街景导航数据集：利用OpenStreetMap生成导航指令，关注地标和转向点。与Touchdown互补，为户外VLN提供了多样化的数据支持。",
+          "tags": [
+            "Dataset",
+            "Outdoor"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/2002.12229"
+        },
+        {
+          "date": "2020-03",
+          "title": "PREVALENT",
+          "venue": "CVPR 2020",
+          "authors": "Hao et al.",
+          "description": "<strong>首次提出VLN预训练范式</strong>：在大量图像-文本-动作三元组上进行自监督预训练，学习通用视觉-语言表示。可作为现有VLN框架的即插即用组件。R2R上SPL从47%提升至51%。开创了VLN预训练的研究方向。",
+          "tags": [
+            "Pretraining"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/2002.10638",
+          "code_url": "https://github.com/weituo12321/PREVALENT",
+          "citations": 500,
+          "affiliation": "UNC Chapel Hill",
+          "concepts": [
+            "VLN Pre-training",
+            "Image-Text-Action Triplets"
+          ]
+        },
+        {
+          "date": "2020-04",
+          "title": "REVERIE",
+          "venue": "CVPR 2020",
+          "authors": "Qi et al.",
+          "description": "远程指代表达导航：智能体需根据高层级自然语言指令导航到远处目标物体并定位。指令更抽象，不描述具体路径，需要更强的推理能力。",
+          "tags": [
+            "Dataset"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/1904.10151"
+        },
+        {
+          "date": "2020-04",
+          "title": "FGR2R: Fine-Grained Room-to-Room",
+          "venue": "EMNLP 2020",
+          "authors": "Hong et al.",
+          "description": "细粒度VLN数据集：为R2R的每条导航指令提供子指令切分注释，将长指令分解为与导航步骤对齐的细粒度子指令。推动了指令跟随的细粒度研究。",
+          "tags": [
+            "Dataset"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/2004.02707"
+        },
+        {
+          "date": "2020-05",
+          "title": "Talk2Nav",
+          "venue": "IJCV 2020",
+          "authors": "Vasudevan et al.",
+          "description": "大规模户外VLN数据集：包含纽约市10,714条真实导航路线和对话指令。提出双注意力机制和空间记忆模块，支持长距离城市级导航。填补了户外真实城市环境VLN数据的空白。",
+          "tags": [
+            "Outdoor",
+            "Dataset"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/1910.02029"
+        },
+        {
+          "date": "2020-06",
+          "title": "ALFRED",
+          "venue": "CVPR 2020",
+          "authors": "Shridhar et al.",
+          "description": "交互式具身指令跟随基准：25,000条自然语言指令对应家务任务的专家演示。包含高层目标和低层指令，涉及物体交互和不可逆状态变化。",
+          "tags": [
+            "Dataset"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/1912.01734",
+          "project_url": "https://askforalfred.com/",
+          "code_url": "https://github.com/askforalfred/alfred",
+          "citations": 1200,
+          "affiliation": "U Washington / AI2",
+          "concepts": [
+            "Embodied Instruction Following",
+            "Interactive Tasks"
+          ]
+        },
+        {
+          "date": "2020-07",
+          "title": "VLN-CE (Continuous Environments)",
+          "venue": "ECCV 2020",
+          "authors": "Krantz et al.",
+          "description": "<strong>将VLN扩展到连续环境</strong>：基于Habitat仿真器，智能体执行低层控制动作（前进0.25m、转向15°），不再依赖预定义导航图。大幅缩小了仿真与现实的差距。",
+          "tags": [
+            "Continuous Env"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/2004.02857",
+          "project_url": "https://jacobkrantz.github.io/vlnce/",
+          "code_url": "https://github.com/jacobkrantz/VLN-CE",
+          "citations": 400,
+          "affiliation": "Georgia Tech",
+          "concepts": [
+            "Low-level Control",
+            "Continuous Action Space"
+          ]
+        },
+        {
+          "date": "2020-07",
+          "title": "Object Goal Navigation using Goal-Oriented Semantic Exploration (SemExp)",
+          "venue": "NeurIPS 2020",
+          "authors": "Chaplot et al.",
+          "description": "<strong>模块化导航里程碑</strong>：提出语义探索框架，将导航分解为语义地图构建+目标导向的前沿探索。在ObjectNav任务上大幅超越强化学习基线，奠定了模块化导航的研究范式。",
+          "tags": [
+            "ObjectNav",
+            "Model",
+            "Mapping"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/2007.00643",
+          "code_url": "https://github.com/devendrachaplot/Object-Goal-Navigation",
+          "citations": 800,
+          "affiliation": "CMU",
+          "concepts": [
+            "Semantic Exploration",
+            "Modular ObjectNav",
+            "Frontier-based Planning"
+          ]
+        },
+        {
+          "date": "2020-08",
+          "title": "Improving VLN with Image-Text Pairs from the Web",
+          "venue": "ECCV 2020",
+          "authors": "Majumdar et al.",
+          "description": "利用网络图像-文本对进行VLN预训练：从网络上采集大规模图像-文本对来学习视觉-语言对齐，然后迁移到VLN任务。与PREVALENT互补，探索了域外数据对VLN的价值。",
+          "tags": [
+            "Pretraining"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/1911.07920"
+        },
+        {
+          "date": "2020-10",
+          "title": "RxR (Room-Across-Room)",
+          "venue": "EMNLP 2020",
+          "authors": "Ku et al.",
+          "description": "首个多语言VLN数据集（英语、印地语、泰卢固语），包含126K条指令和16.5K条路径。每个词与虚拟姿态时间对齐，提供密集的时空对齐。规模远超R2R。",
+          "tags": [
+            "Dataset"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/2010.07954"
+        },
+        {
+          "date": "2020-11",
+          "title": "Sim-to-Real Transfer for VLN",
+          "venue": "CoRL 2021",
+          "authors": "Anderson et al.",
+          "description": "首次系统研究VLN的仿真到现实迁移：提出子目标模型识别可达航路点，通过域随机化缓解视觉差异。在真实机器人上达到46.8%成功率（vs仿真55.9%），证明了仿真训练的可迁移性。",
+          "tags": [
+            "Sim2Real"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/2011.03588",
+          "code_url": "https://github.com/batra-mlp-lab/vln-sim2real",
+          "citations": 200,
+          "affiliation": "Georgia Tech",
+          "concepts": [
+            "Sim2Real Transfer",
+            "Waypoint Subgoal"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Transformer与图表示",
+      "range": "2021 · 预训练模型、注意力机制与拓扑图",
+      "papers": [
+        {
+          "date": "2021-03",
+          "title": "VLN-BERT (Recurrent)",
+          "venue": "CVPR 2021",
+          "authors": "Hong et al.",
+          "description": "将预训练的视觉-语言BERT改造为循环架构用于VLN导航。结合PREVALENT初始化，在R2R测试集上将成功率绝对提升8%，达到63% SR和57% SPL。",
+          "tags": [
+            "Pretraining",
+            "Model"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/2011.13922"
+        },
+        {
+          "date": "2021-03",
+          "title": "SOON (Scenario Oriented Object Navigation)",
+          "venue": "CVPR 2021",
+          "authors": "Zhu et al.",
+          "description": "场景导向的目标导航任务：提供丰富的场景语义描述（物体属性、关系、区域描述），要求从任意位置导航到目标。提出图探索方法（GBE）。",
+          "tags": [
+            "Dataset",
+            "ObjectNav"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/2103.17138"
+        },
+        {
+          "date": "2021-07",
+          "title": "Airbert",
+          "venue": "ICCV 2021",
+          "authors": "Guhur et al.",
+          "description": "域内预训练：构建BnB大规模域内数据集（Airbnb房屋图像），提出shuffling loss增强时序推理。首次证明域内数据对VLN预训练的重要性，在R2R和REVERIE上达到SOTA。",
+          "tags": [
+            "Pretraining"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/2108.09105"
+        },
+        {
+          "date": "2021-08",
+          "title": "Waypoint Models for VLN-CE",
+          "venue": "ICCV 2021",
+          "authors": "Krantz et al.",
+          "description": "提出语言条件航路点预测网络：将连续环境导航分解为高层航路点预测和低层控制。更具表达力的模型产生更简洁、执行更快的轨迹。在VLN-CE排行榜上提升成功率1-4%。",
+          "tags": [
+            "Continuous Env",
+            "Model"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/2110.02207"
+        },
+        {
+          "date": "2021-10",
+          "title": "HAMT (History Aware Multimodal Transformer)",
+          "venue": "NeurIPS 2021",
+          "authors": "Chen et al.",
+          "description": "<strong>里程碑式工作</strong>：提出层级视觉Transformer编码全部历史全景观测，联合文本、历史和当前观测预测动作。首个全Transformer架构的VLN模型。在R2R, RxR, REVERIE, CVDN, R4R等多个基准上全面达到SOTA。",
+          "tags": [
+            "Model"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/2110.13309",
+          "code_url": "https://github.com/cshizhe/VLN-HAMT",
+          "citations": 400,
+          "affiliation": "MSRA",
+          "concepts": [
+            "Full History Encoding",
+            "Hierarchical ViT"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "图规划、BEV与LLM初探",
+      "range": "2022–2023 · 拓扑地图、数据扩展、零样本方法与LLM",
+      "papers": [
+        {
+          "date": "2022-02",
+          "title": "DUET (Dual-Scale Graph Transformer)",
+          "venue": "CVPR 2022",
+          "authors": "Chen et al.",
+          "description": "提出双尺度图Transformer：在线构建拓扑地图，动态结合局部细粒度编码和全局粗粒度编码。在REVERIE和SOON上成功率提升20%+。首次将在线拓扑地图引入VLN。",
+          "tags": [
+            "Model"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/2202.11742",
+          "project_url": "https://cshizhe.github.io/projects/vln_duet.html",
+          "code_url": "https://github.com/cshizhe/VLN-DUET",
+          "citations": 300,
+          "affiliation": "MSRA",
+          "concepts": [
+            "Online Topological Map",
+            "Dual-Scale Graph"
+          ]
+        },
+        {
+          "date": "2022-03",
+          "title": "CLIP-ViL for VLN",
+          "venue": "NAACL Findings 2022",
+          "authors": "Shen et al.",
+          "description": "将CLIP视觉特征引入VLN，在R2R上提升约6%成功率，在RxR上提升5% nDTW。证明了大规模预训练视觉特征对VLN的巨大价值。",
+          "tags": [
+            "Pretraining"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/2107.06383"
+        },
+        {
+          "date": "2022-03",
+          "title": "HOP: History-and-Order Aware Pre-training",
+          "venue": "CVPR 2022",
+          "authors": "Qiao et al.",
+          "description": "历史与顺序感知的VLN预训练：提出历史回放和顺序感知的预训练目标，增强模型对导航历史的感知能力。在R2R和RxR上达到竞争性能。",
+          "tags": [
+            "Pretraining",
+            "Model"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/2203.11591",
+          "code_url": "https://github.com/YanyuanQiao/HOP-VLN"
+        },
+        {
+          "date": "2022-04",
+          "title": "SayCan: Do As I Can, Not As I Say",
+          "venue": "CoRL 2022",
+          "authors": "Ahn et al.",
+          "description": "<strong>将LLM接地到机器人能力</strong>：LLM提供语言理解和任务规划，机器人的“能力函数”提供可行性打分，两者结合实现可执行的长期任务规划。在Google机器人上演示了完成复杂家务任务。开创了LLM+机器人的经典范式。",
+          "tags": [
+            "LLM/VLA"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/2204.01691",
+          "project_url": "https://say-can.github.io/",
+          "code_url": "https://github.com/google-research/google-research/tree/master/saycan",
+          "citations": 2000,
+          "affiliation": "Google Research",
+          "concepts": [
+            "LLM + Affordance",
+            "Grounded Planning"
+          ]
+        },
+        {
+          "date": "2022-07",
+          "title": "LM-Nav",
+          "venue": "CoRL 2022",
+          "authors": "Shah et al.",
+          "description": "<strong>零样本户外机器人导航</strong>：完全由三个预训练模型（GPT-3 + CLIP + ViNG）组合构成，无需任何微调。LLM解析指令为地标序列，CLIP将地标接地到世界中，视觉导航模型执行。成功在真实户外环境中完成数百米导航。",
+          "tags": [
+            "LLM/VLA",
+            "Zero-Shot",
+            "Outdoor"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/2207.04429",
+          "project_url": "https://sites.google.com/view/lmnav",
+          "code_url": "https://github.com/blazejosinski/lm_nav",
+          "citations": 500,
+          "affiliation": "UC Berkeley",
+          "concepts": [
+            "Zero-shot Robot Nav",
+            "LLM+CLIP+ViNG Pipeline"
+          ]
+        },
+        {
+          "date": "2022-08",
+          "title": "AVLEN (Audio-Visual-Language Navigation)",
+          "venue": "NeurIPS 2022",
+          "authors": "Paul et al.",
+          "description": "音频-视觉-语言导航：智能体结合视觉、听觉和语言三种模态信息进行导航。使用语言指令指导智能体找到声音源目标，扩展了多模态导航的边界。",
+          "tags": [
+            "Multi-Modal",
+            "Model"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/2210.07237"
+        },
+        {
+          "date": "2022-10",
+          "title": "VLMaps (Visual Language Maps)",
+          "venue": "ICRA 2023",
+          "authors": "Huang et al.",
+          "description": "提出视觉语言地图：将预训练视觉-语言模型特征融合到3D重建中的空间地图表示。支持自然语言索引地图，可在多机器人间共享并动态生成障碍物地图。开创了语义地图构建的新方向。",
+          "tags": [
+            "Model",
+            "Mapping"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/2210.05714",
+          "project_url": "https://vlmaps.github.io/",
+          "code_url": "https://github.com/vlmaps/vlmaps",
+          "citations": 600,
+          "affiliation": "TU Darmstadt",
+          "concepts": [
+            "Visual Language Map",
+            "Language-indexed 3D Map"
+          ]
+        },
+        {
+          "date": "2022-10",
+          "title": "FILM: Following Instructions in Language with Modular Methods",
+          "venue": "NeurIPS 2022",
+          "authors": "Min et al.",
+          "description": "<strong>模块化零样本ObjectNav</strong>：将视觉理解、语义地图和前沿探索组合为模块化管道，无需任务特定训练即可在ObjectNav上达到强竞争性能。立了模块化导航的新标杆。",
+          "tags": [
+            "ObjectNav",
+            "Zero-Shot",
+            "Model"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/2110.07342",
+          "code_url": "https://github.com/soyeonm/FILM",
+          "citations": 300,
+          "affiliation": "Columbia",
+          "concepts": [
+            "Modular Zero-shot ObjectNav",
+            "Frontier Exploration"
+          ]
+        },
+        {
+          "date": "2022-11",
+          "title": "CLIP-Nav",
+          "venue": "CoRL Workshop 2022",
+          "authors": "Dorbala et al.",
+          "description": "利用CLIP实现零样本VLN：无需数据集微调，直接使用CLIP进行序列化导航决策。在REVERIE上超越监督基线（SR和SPL），且跨环境泛化能力更强。",
+          "tags": [
+            "Zero-Shot",
+            "Model"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/2211.16649"
+        },
+        {
+          "date": "2022-11",
+          "title": "VER: Scaling On-Policy RL for Embodied AI",
+          "venue": "NeurIPS 2022",
+          "authors": "Wijmans et al.",
+          "description": "Variable Experience Rollout：解决具身导航中强化学习训练的延迟瓶颈。允许不同环境以不同速度收集经验，大幅提升GPU利用率。在Habitat Challenge中取得最佳成绩。",
+          "tags": [
+            "Model"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/2210.05064",
+          "code_url": "https://github.com/facebookresearch/habitat-lab"
+        },
+        {
+          "date": "2022-12",
+          "title": "BEVBert",
+          "venue": "ICCV 2023",
+          "authors": "An et al.",
+          "description": "引入混合拓扑-度量地图进行VLN预训练：拓扑地图用于长程规划，度量地图用于短程推理。BEV表示消除了全景观测中的重复和不完整问题。在R2R, R2R-CE, RxR, REVERIE四个基准上达到SOTA。",
+          "tags": [
+            "Pretraining",
+            "Model"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/2212.04385",
+          "code_url": "https://github.com/MarSaKi/VLN-BEVBert",
+          "citations": 200,
+          "affiliation": "USTC",
+          "concepts": [
+            "Hybrid Topo-Metric Map",
+            "BEV Pre-training"
+          ]
+        },
+        {
+          "date": "2023-01",
+          "title": "PIRLNav: Pretraining with Internet for Real-World Navigation",
+          "venue": "CVPR 2023",
+          "authors": "Ram et al.",
+          "description": "利用网络数据预训练的真实世界导航：用YouTube视频和网络图像进行大规模视觉预训练，显著提升了ObjectNav的仿真到真实迁移性能。在Habitat Challenge中达到顶尖性能。",
+          "tags": [
+            "Sim2Real",
+            "Pretraining"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/2301.07384"
+        },
+        {
+          "date": "2023-04",
+          "title": "ETPNav",
+          "venue": "TPAMI 2024",
+          "authors": "An et al.",
+          "description": "演化拓扑规划框架：自组织航路点构建在线拓扑地图，将导航分解为高层规划和低层控制。在R2R-CE和RxR-CE上分别提升10%和20%以上。连续环境VLN的突破性工作。",
+          "tags": [
+            "Continuous Env",
+            "Model"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/2304.03047",
+          "code_url": "https://github.com/MarSaKi/ETPNav",
+          "citations": 150,
+          "affiliation": "USTC",
+          "concepts": [
+            "Evolving Topological Planning",
+            "Waypoint Self-organization"
+          ]
+        },
+        {
+          "date": "2023-07",
+          "title": "ScaleVLN",
+          "venue": "ICCV 2023 (Oral)",
+          "authors": "Wang et al.",
+          "description": "<strong>数据规模突破</strong>：利用1200+环境（HM3D+Gibson）生成490万条指令-轨迹对。首次在R2R上达到80%成功率，消除了已见/未见环境间的泛化差距（<1%）。证明了数据规模对VLN的决定性影响。",
+          "tags": [
+            "Dataset",
+            "Model"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/2307.15644",
+          "project_url": "https://scalevln.github.io/",
+          "code_url": "https://github.com/wz0919/ScaleVLN",
+          "citations": 100,
+          "affiliation": "HKUST",
+          "concepts": [
+            "4.9M Training Data",
+            "Generalization Gap Elimination"
+          ]
+        },
+        {
+          "date": "2023-08",
+          "title": "BSG (Bird's-Eye-View Scene Graph)",
+          "venue": "ICCV 2023",
+          "authors": "Liu et al.",
+          "description": "BEV场景图：利用多步BEV表示编码场景布局和几何线索，通过3D检测监督增强环境理解。在REVERIE, R2R, R4R上显著超越SOTA。",
+          "tags": [
+            "Model"
+          ],
+          "milestone": false
+        },
+        {
+          "date": "2023-08",
+          "title": "AerialVLN",
+          "venue": "ICCV 2023",
+          "authors": "Liu et al.",
+          "description": "<strong>首个无人机VLN任务</strong>：定义空中视觉语言导航，包含25个城市级场景。无人机导航面临连续3D动作空间、城市尺度远距离和稀疏视觉线索的独特挑战。建立了首个UAV-VLN基准。",
+          "tags": [
+            "Aerial/UAV",
+            "Dataset"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/2308.06735",
+          "code_url": "https://github.com/AirVLN/AirVLN",
+          "citations": 80,
+          "affiliation": "BUAA",
+          "concepts": [
+            "UAV VLN Task",
+            "City-scale Aerial Nav"
+          ]
+        },
+        {
+          "date": "2023-09",
+          "title": "OAVLN (Object-Aware Outdoor VLN)",
+          "venue": "CVPR Workshop 2023",
+          "authors": "Lin et al.",
+          "description": "户外VLN的物体感知方法：利用物体特征增强环境理解，使智能体关注指令中描述的地标物体。在Touchdown和map2seq数据集上超越前方法。",
+          "tags": [
+            "Outdoor",
+            "Model"
+          ],
+          "milestone": false
+        },
+        {
+          "date": "2023-09",
+          "title": "SayNav",
+          "venue": "arXiv 2023",
+          "authors": "Rajvanshi et al.",
+          "description": "利用LLM常识知识进行导航规划：增量构建3D场景图作为LLM输入，动态生成逐步导航指令。在MultiON任务中超越oracle基线8%+，展示了LLM在大规模环境导航中的优势。",
+          "tags": [
+            "LLM/VLA",
+            "3D Scene Graph"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/2309.04077"
+        },
+        {
+          "date": "2023-09",
+          "title": "AVDN (Aerial Vision-and-Dialog Navigation)",
+          "venue": "ACL 2023",
+          "authors": "Fan et al.",
+          "description": "首个空中视觉-对话导航数据集：无人机通过与用户多轮对话在城市环境中导航到目标位置。结合了UAV导航和对话式交互。",
+          "tags": [
+            "Aerial/UAV",
+            "Dataset"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/2308.09659"
+        },
+        {
+          "date": "2023-10",
+          "title": "Co-NavGPT",
+          "venue": "arXiv 2023",
+          "authors": "Yu et al.",
+          "description": "多机器人协作导航：利用LLM进行多智能体协调，将探索任务智能分配给不同机器人。展示了LLM在多智能体导航协作中的应用潜力。",
+          "tags": [
+            "LLM/VLA",
+            "Model"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/2310.07937"
+        },
+        {
+          "date": "2023-10",
+          "title": "NavGPT",
+          "venue": "AAAI 2024",
+          "authors": "Zhou et al.",
+          "description": "<strong>首次将LLM用作零样本VLN智能体</strong>：纯LLM（GPT-4）进行指令分解、常识推理、地标识别和进度追踪。展示了LLM在导航推理中的巨大潜力。",
+          "tags": [
+            "LLM/VLA"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/2305.16986",
+          "code_url": "https://github.com/GengzeZhou/NavGPT",
+          "citations": 200,
+          "affiliation": "NUS",
+          "concepts": [
+            "LLM as Zero-shot Navigator",
+            "Instruction Decomposition"
+          ]
+        },
+        {
+          "date": "2023-10",
+          "title": "Habitat 3.0: A Co-Habitat for Humans, Avatars and Robots",
+          "venue": "NeurIPS 2023",
+          "authors": "Puig et al.",
+          "description": "仿真平台重大升级：支持人-机器人协作、真实感人体化身和复杂家居任务。引入Social Navigation和Social Rearrangement任务，推动具身智能向人-机共存方向发展。",
+          "tags": [
+            "Dataset"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/2310.13724",
+          "project_url": "https://aihabitat.org/",
+          "code_url": "https://github.com/facebookresearch/habitat-lab"
+        },
+        {
+          "date": "2023-12",
+          "title": "NaviLLM",
+          "venue": "CVPR 2024",
+          "authors": "Zheng et al.",
+          "description": "<strong>首个通用具身导航LLM</strong>：通过schema-based指令将多种导航任务统一为生成问题。单一模型在CVDN上超越前SOTA 29%，同时在SOON和ScanQA上达到新SOTA。展示了强大的零样本泛化能力。",
+          "tags": [
+            "LLM/VLA",
+            "Model"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/2312.02010",
+          "code_url": "https://github.com/zd11024/NaviLLM",
+          "citations": 150,
+          "affiliation": "HKU",
+          "concepts": [
+            "Unified Nav LLM",
+            "Schema-based Instruction"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "大模型与VLA时代",
+      "range": "2024 · 视觉语言动作模型与多形态机器人部署",
+      "papers": [
+        {
+          "date": "2023-12",
+          "title": "Marky (Synthetic Instructions at Scale)",
+          "venue": "CVPR 2023",
+          "authors": "Wang et al.",
+          "description": "大规模合成指令生成：利用500+室内环境的密集全景图生成420万条指令-轨迹对。指令质量接近人类水平，在RxR上刷新SOTA。指向了通过合成数据提升VLN性能的新路径。",
+          "tags": [
+            "Dataset",
+            "Model"
+          ],
+          "milestone": false
+        },
+        {
+          "date": "2024-01",
+          "title": "CityNav",
+          "venue": "ICCV 2025",
+          "authors": "Lee et al.",
+          "description": "<strong>城市级无人机VLN基准</strong>：智能体需从高层级描述（如\"飞到红色教堂附近的停车场\"）导航到城市中的目标位置。涵盖剑桥和伯明翰两个城市，包含32,637条轨迹。已发表于ICCV 2025。",
+          "tags": [
+            "Aerial/UAV",
+            "Dataset"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/2406.14240",
+          "project_url": "https://water-cookie.github.io/city-nav-proj/",
+          "code_url": "https://github.com/water-cookie/citynav",
+          "citations": 50,
+          "affiliation": "KAIST",
+          "concepts": [
+            "City-level UAV Benchmark",
+            "High-level Language Goal"
+          ]
+        },
+        {
+          "date": "2024-02",
+          "title": "MapGPT: Map-Guided Prompting with Adaptive Path Planning for VLN",
+          "venue": "ACL 2024",
+          "authors": "Chen et al.",
+          "description": "地图引导的LLM导航：将在线构建的拓扑地图转化为文本描述输入LLM，结合自适应路径规划。首次将地图信息以提示形式注入LLM导航，在R2R上显著超越纯LLM方法。",
+          "tags": [
+            "LLM/VLA",
+            "Mapping"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/2401.07314"
+        },
+        {
+          "date": "2024-04",
+          "title": "GOAT-Bench: A Benchmark for Multi-Target Navigation",
+          "venue": "CVPR 2024",
+          "authors": "Khanna et al.",
+          "description": "多目标导航基准：智能体需顺序导航到多个目标，目标可通过图像、类别或语言描述指定。包含711多目标episode，综合评估导航、识别和规划能力。",
+          "tags": [
+            "Dataset",
+            "ObjectNav"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/2404.06609",
+          "project_url": "https://mukulkhanna.github.io/goat-bench/",
+          "code_url": "https://github.com/mukulkhanna/goat-bench"
+        },
+        {
+          "date": "2024-05",
+          "title": "ThinkBot: Embodied Reasoning with Think-Act-Observe Cycles",
+          "venue": "RSS 2024",
+          "authors": "Zhang et al.",
+          "description": "Think-Act-Observe循环框架：智能体在每步进行显式推理（Think）、执行动作（Act）、观察反馈（Observe）。将思维链引入具身导航，提升了复杂场景中的决策质量。",
+          "tags": [
+            "LLM/VLA",
+            "Model"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/2312.07062"
+        },
+        {
+          "date": "2024-06",
+          "title": "NaVid",
+          "venue": "RSS 2024",
+          "authors": "Zhang et al.",
+          "description": "<strong>首个视频VLM导航智能体</strong>：仅使用单目RGB视频流和语言指令，无需地图、里程计或深度信息。模拟人类导航方式，在VLN-CE上达到SOTA级别性能，并成功零样本迁移到真实机器人。开创了VLA导航范式。",
+          "tags": [
+            "LLM/VLA"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/2402.15852",
+          "project_url": "https://pku-epic.github.io/NaVid/",
+          "code_url": "https://github.com/jzhzhang/NaVid-VLN-CE",
+          "citations": 100,
+          "affiliation": "PKU",
+          "concepts": [
+            "Video-based VLM Nav",
+            "Mapless Navigation"
+          ]
+        },
+        {
+          "date": "2024-06",
+          "title": "Sim-to-Real via 3D Feature Fields",
+          "venue": "CoRL 2024",
+          "authors": "Zihan et al.",
+          "description": "提出基于3D特征场的仿真到真实迁移方法：语义可遍历地图预测可达航路点，通过新视角表示扩展单目机器人的感知范围。在R2R-CE和RxR-CE中超越前SOTA单目VLN方法。",
+          "tags": [
+            "Sim2Real",
+            "Continuous Env"
+          ],
+          "milestone": false
+        },
+        {
+          "date": "2024-07",
+          "title": "NavGPT-2",
+          "venue": "ECCV 2024",
+          "authors": "Zhou et al.",
+          "description": "弥合VLN专用模型与LLM导航范式的差距：基于InstructBLIP对齐视觉内容，结合拓扑图导航策略。首次消除了LM-based智能体与SOTA VLN专家模型间的性能差距。",
+          "tags": [
+            "LLM/VLA"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/2407.12366"
+        },
+        {
+          "date": "2024-07",
+          "title": "SG-Nav (3D Scene Graph Navigation)",
+          "venue": "NeurIPS 2024",
+          "authors": "Yin et al.",
+          "description": "在线构建3D场景图用于零样本目标导航：利用层级Chain-of-Thought提示LLM进行空间推理，结合基于图的重感知机制纠正感知误差。在MP3D、HM3D和RoboTHOR上超越前方法。",
+          "tags": [
+            "3D Scene Graph",
+            "Zero-Shot"
+          ],
+          "milestone": false
+        },
+        {
+          "date": "2024-07",
+          "title": "GaussNav: Gaussian Splatting for Visual Navigation",
+          "venue": "ECCV 2024",
+          "authors": "Lei et al.",
+          "description": "将高斯溥射（Gaussian Splatting）引入视觉导航：构建Instance ImageGoal Navigation基准，利用3DGS的语义特征进行目标定位和导航规划。探索了新型3D表示在导航中的应用。",
+          "tags": [
+            "Model",
+            "ObjectNav"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/2403.11625",
+          "code_url": "https://github.com/XiaohanLei/GaussNav"
+        },
+        {
+          "date": "2024-10",
+          "title": "OpenFly",
+          "venue": "arXiv 2024",
+          "authors": "Chen et al.",
+          "description": "开放平台无人机VLN框架：支持多种UAV平台，提供标准化的评估基准和模型部署接口。促进了UAV-VLN研究的可复现性和社区发展。",
+          "tags": [
+            "Aerial/UAV"
+          ],
+          "milestone": false
+        },
+        {
+          "date": "2024-12",
+          "title": "Uni-NaVid",
+          "venue": "RSS 2025",
+          "authors": "Zhang et al.",
+          "description": "首个统一的视频VLA模型：统一多种具身导航任务的输入输出格式，在360万导航样本上训练。在综合导航基准上达到SOTA，并成功部署到真实环境。",
+          "tags": [
+            "LLM/VLA"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/2412.06224",
+          "project_url": "https://pku-epic.github.io/Uni-NaVid/",
+          "citations": 30,
+          "affiliation": "PKU",
+          "concepts": [
+            "Unified Video VLA",
+            "Multi-task Navigation"
+          ]
+        },
+        {
+          "date": "2024-12",
+          "title": "NaVILA",
+          "venue": "RSS 2025",
+          "authors": "Cheng et al.",
+          "description": "将VLA与腿式运动技能结合：生成中层语言动作（如\"前进75cm\"），再由视觉运动RL策略执行。首次在真实四足/人形机器人上实现VLN。",
+          "tags": [
+            "LLM/VLA",
+            "Sim2Real"
+          ],
+          "milestone": false
+        },
+        {
+          "date": "2024-12",
+          "title": "Efficient-VLN",
+          "venue": "arXiv 2025",
+          "authors": "Li et al.",
+          "description": "训练高效VLN模型：显著降低训练成本，在R2R-CE上达到64.2% SR。证明了通过高效训练策略可以大幅降低VLN模型的计算需求，同时保持竞争力。",
+          "tags": [
+            "Model",
+            "Continuous Env"
+          ],
+          "milestone": false
+        }
+      ]
+    },
+    {
+      "name": "多维度拓展",
+      "range": "2025 · 长程导航、无人机、推理增强与物理部署",
+      "papers": [
+        {
+          "date": "2025-01",
+          "title": "GroundingMate",
+          "venue": "WACV 2025",
+          "authors": "Liu et al.",
+          "description": "面向目标导向VLN的物体接地：结合视觉接地和导航决策，提升智能体对目标物体的识别和导航精度。在REVERIE等基准上取得显著提升。",
+          "tags": [
+            "ObjectNav",
+            "Model"
+          ],
+          "milestone": false
+        },
+        {
+          "date": "2025-01",
+          "title": "UAV-VLA",
+          "venue": "HRI 2025",
+          "authors": "Sautenich et al.",
+          "description": "基于卫星图像的无人机飞行路径规划：结合VLM和GPT从卫星影像理解地形和障碍物，自动生成无人机飞行路径。探索了VLA在实际UAV任务中的应用。",
+          "tags": [
+            "Aerial/UAV",
+            "LLM/VLA"
+          ],
+          "milestone": false
+        },
+        {
+          "date": "2025-01",
+          "title": "OpenUAV / UAV-Need-Help",
+          "venue": "ICLR 2025",
+          "authors": "Wang et al.",
+          "description": "<strong>逼真无人机VLN平台</strong>：包含12,000条轨迹的评测基准，提出\"助手引导\"范式让UAV在导航困难时主动请求帮助。开发了专门的UAV导航LLM，促进了无人机VLN研究的可复现性。发表于ICLR 2025。",
+          "tags": [
+            "Aerial/UAV",
+            "Dataset"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/2410.07087",
+          "project_url": "https://prince687028.github.io/OpenUAV/",
+          "citations": 20,
+          "affiliation": "SJTU",
+          "concepts": [
+            "UAV Help-seeking",
+            "Assistant-guided Nav"
+          ]
+        },
+        {
+          "date": "2025-02",
+          "title": "UAV-VLN",
+          "venue": "arXiv 2025",
+          "authors": "Gu et al.",
+          "description": "端到端LLM驱动的无人机视觉语言导航：直接利用大语言模型处理无人机视觉观测和语言指令，输出飞行控制动作。探索了LLM在无人机导航中的应用。",
+          "tags": [
+            "Aerial/UAV",
+            "LLM/VLA"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/2504.21432"
+        },
+        {
+          "date": "2025-03",
+          "title": "VLFly",
+          "venue": "arXiv 2025",
+          "authors": "Li et al.",
+          "description": "无人机VLN的开放词汇接地方法：结合视觉语言模型实现对未见物体和场景的开放词汇理解。提升UAV在未知环境中的适应能力。",
+          "tags": [
+            "Aerial/UAV",
+            "Zero-Shot"
+          ],
+          "milestone": false
+        },
+        {
+          "date": "2025-03",
+          "title": "UAV-ON (UAV Object Goal Navigation)",
+          "venue": "arXiv 2025",
+          "authors": "Zhang et al.",
+          "description": "无人机目标导航基准：首个面向UAV的物体目标导航数据集和评估基准。研究无人机在3D空间中寻找特定物体的能力。",
+          "tags": [
+            "Aerial/UAV",
+            "ObjectNav",
+            "Dataset"
+          ],
+          "milestone": false
+        },
+        {
+          "date": "2025-03",
+          "title": "M3DSG / MSGNav",
+          "venue": "arXiv 2026",
+          "authors": "Wu et al.",
+          "description": "多模态3D场景图导航：用动态图像边替代传统文本关系边，保留视觉线索。提出关键子图选择和自适应词汇更新，支持开放词汇零样本导航。在GOAT-Bench和HM3D-ObjNav上显著超越前方法。",
+          "tags": [
+            "3D Scene Graph",
+            "Zero-Shot",
+            "Model"
+          ],
+          "milestone": false
+        },
+        {
+          "date": "2025-04",
+          "title": "GAMap (Zero-Shot Object Goal Navigation)",
+          "venue": "arXiv 2025",
+          "authors": "Zhao et al.",
+          "description": "零样本目标导航的全局感知地图方法：结合语义地图构建和全局-局部感知策略，无需任务特定训练即可导航到指定目标物体。推动了零样本ObjectNav的发展。",
+          "tags": [
+            "ObjectNav",
+            "Zero-Shot",
+            "Mapping"
+          ],
+          "milestone": false
+        },
+        {
+          "date": "2025-05",
+          "title": "CityNavAgent",
+          "venue": "ACL 2025",
+          "authors": "Zhang et al.",
+          "description": "城市级空中VLN的层次语义规划器：提出零样本航点预测和全局记忆机制，实现无需任务特定训练即可在城市环境中进行无人机导航。层次化的规划策略有效应对城市尺度的复杂导航任务。发表于ACL 2025。",
+          "tags": [
+            "Aerial/UAV",
+            "LLM/VLA"
+          ],
+          "milestone": false
+        },
+        {
+          "date": "2025-06",
+          "title": "VLN-R1",
+          "venue": "arXiv 2025",
+          "authors": "Chen et al.",
+          "description": "受DeepSeek-R1启发，将GRPO强化学习微调引入VLN。提出时间衰减奖励机制优化长程决策。开创了VLN中的RL后训练范式。",
+          "tags": [
+            "LLM/VLA"
+          ],
+          "milestone": false
+        },
+        {
+          "date": "2025-06",
+          "title": "SLAM-Free Hierarchical VLN",
+          "venue": "arXiv 2025",
+          "authors": "Yang et al.",
+          "description": "无SLAM视觉导航：通过层级视觉-语言模型实现无需传统SLAM的导航。增量更新拓扑图，结合VLM进行高层规划，探索了去除传统SLAM依赖的可能性。",
+          "tags": [
+            "Model",
+            "Mapping"
+          ],
+          "milestone": false
+        },
+        {
+          "date": "2025-07",
+          "title": "StreamVLN",
+          "venue": "arXiv 2025",
+          "authors": "Wang et al.",
+          "description": "流式VLN框架：混合快-慢上下文建模策略实现低延迟动作生成。滑动窗口KV缓存+3D空间Token剪枝，实现高效长程导航。",
+          "tags": [
+            "LLM/VLA"
+          ],
+          "milestone": false
+        },
+        {
+          "date": "2025-07",
+          "title": "VLN-PE (Physical Embodiment)",
+          "venue": "ICCV 2025",
+          "authors": "Wang et al.",
+          "description": "物理真实VLN平台：支持人形、四足和轮式机器人。首次系统评估VLN方法在物理机器人上的表现，揭示了34%的性能退化。",
+          "tags": [
+            "Sim2Real",
+            "Continuous Env"
+          ],
+          "milestone": false
+        },
+        {
+          "date": "2025-07",
+          "title": "LH-VLN (Long-Horizon)",
+          "venue": "CVPR 2025",
+          "authors": "Song et al.",
+          "description": "长程VLN任务：将导航分解为多个子任务，平均150步。提出自动数据生成平台NavGen和多粒度动态记忆模块。",
+          "tags": [
+            "Dataset",
+            "Model"
+          ],
+          "milestone": false
+        }
+      ]
+    },
+    {
+      "name": "最新前沿",
+      "range": "2025.9–2026.3 · 推理链、统一框架与评估体系",
+      "papers": [
+        {
+          "date": "2025-09",
+          "title": "NavFoM",
+          "venue": "ICLR 2026",
+          "authors": "Zhang et al.",
+          "description": "<strong>跨具身导航基础模型</strong>：统一支持四足机器人、无人机、轮式机器人和车辆等多种机器人形态的导航基础模型。基于800万样本训练，实现跨平台零样本迁移。首次将无人机纳入统一导航框架。",
+          "tags": [
+            "Aerial/UAV",
+            "LLM/VLA",
+            "Sim2Real"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/2509.12129",
+          "project_url": "https://pku-epic.github.io/NavFoM-Web",
+          "citations": 10,
+          "affiliation": "PKU",
+          "concepts": [
+            "Cross-embodiment Foundation Model",
+            "Multi-robot Transfer"
+          ]
+        },
+        {
+          "date": "2025-12",
+          "title": "IndoorUAV",
+          "venue": "arXiv 2025",
+          "authors": "Wu et al.",
+          "description": "<strong>首个室内无人机VLN基准</strong>：覆盖1000+场景、50,000+轨迹。提出IndoorUAV-Agent，采用任务分解策略处理室内无人机的独特挑战（受限空间、障碍物密集、精细控制）。填补了室内UAV-VLN的空白。",
+          "tags": [
+            "Aerial/UAV",
+            "Dataset"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/2512.19024",
+          "citations": 5,
+          "affiliation": "NUDT",
+          "concepts": [
+            "Indoor UAV VLN",
+            "Task Decomposition"
+          ]
+        },
+        {
+          "date": "2025-12",
+          "title": "WP-CMA",
+          "venue": "ACM MM 2025",
+          "authors": "Liu et al.",
+          "description": "连续VLN中的航路点预测跨模态对齐框架：设计新型跨模态注意力机制，增强语言指令与视觉观测的航路点级别对齐。在VLN-CE上取得显著改进。",
+          "tags": [
+            "Continuous Env",
+            "Model"
+          ],
+          "milestone": false
+        },
+        {
+          "date": "2026-01",
+          "title": "FantasyVLN",
+          "venue": "arXiv 2026",
+          "authors": "Xu et al.",
+          "description": "统一多模态Chain-of-Thought推理导航框架：将导航决策过程建模为显式推理链，结合视觉、语言和空间信息进行联合推理。代表了VLN与推理模型结合的新范式。",
+          "tags": [
+            "LLM/VLA",
+            "Model"
+          ],
+          "milestone": false
+        },
+        {
+          "date": "2026-01",
+          "title": "VLingNav",
+          "venue": "arXiv 2026",
+          "authors": "Wang et al.",
+          "description": "<strong>最大推理注释数据集</strong>：构建Nav-AdaCoT-2.9M（290万条带推理注释的导航数据），引入自适应Chain-of-Thought推理和视觉辅助语言记忆模块。结合在线RL后训练，零样本迁移至真实机器人。",
+          "tags": [
+            "LLM/VLA",
+            "Dataset"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/2601.08665",
+          "project_url": "https://wsakobe.github.io/VLingNav-web/",
+          "citations": 5,
+          "affiliation": "ZJU",
+          "concepts": [
+            "Nav-AdaCoT-2.9M",
+            "Adaptive Chain-of-Thought"
+          ]
+        },
+        {
+          "date": "2026-01",
+          "title": "EmergeNav",
+          "venue": "arXiv 2026",
+          "authors": "Li et al.",
+          "description": "零样本结构化具身推理导航：无需训练直接利用预训练模型的涌现能力进行导航推理。探索了大模型零样本能力在具身导航中的边界。",
+          "tags": [
+            "Zero-Shot",
+            "LLM/VLA"
+          ],
+          "milestone": false
+        },
+        {
+          "date": "2026-02",
+          "title": "Unified Aerial VLN with NVILA",
+          "venue": "arXiv 2026",
+          "authors": "Sun et al.",
+          "description": "基于NVILA的统一空中VLN框架：将多种无人机导航任务统一到单一模型，利用视觉语言大模型处理航拍视角理解和空间推理。代表UAV-VLN与大模型融合的最新进展。",
+          "tags": [
+            "Aerial/UAV",
+            "LLM/VLA"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/2512.08639",
+          "citations": 5,
+          "affiliation": "NVIDIA",
+          "concepts": [
+            "Unified Aerial VLN",
+            "NVILA Framework"
+          ]
+        },
+        {
+          "date": "2026-03",
+          "title": "VL-Nav (Neuro-Symbolic Navigation)",
+          "venue": "arXiv 2026",
+          "authors": "DARPA TIAMAT",
+          "description": "神经符号导航系统：结合神经网络的感知能力和符号推理的可解释性。DARPA TIAMAT项目支持，探索VLN的可解释和可靠导航方向。",
+          "tags": [
+            "Model"
+          ],
+          "milestone": false
+        },
+        {
+          "date": "2026-03",
+          "title": "NaviTrace",
+          "venue": "arXiv 2026",
+          "authors": "Huang et al.",
+          "description": "VLM导航评估基准：系统评估视觉语言模型在导航任务中的表现，提供标准化的评估流程和指标体系。填补了VLM导航评估的空白。",
+          "tags": [
+            "Dataset"
+          ],
+          "milestone": false
+        },
+        {
+          "date": "2026-03",
+          "title": "SID (Self-Improving Demonstrations)",
+          "venue": "arXiv 2026",
+          "authors": "Chen et al.",
+          "description": "自改进演示方法：通过迭代自我改进过程生成高质量导航演示数据，提升目标导向VLN的性能。探索了自主数据改进范式在VLN中的应用。",
+          "tags": [
+            "Model"
+          ],
+          "milestone": false
+        },
+        {
+          "date": "2026-03",
+          "title": "NaVIDA (Inverse Dynamics Augmentation)",
+          "venue": "arXiv 2026",
+          "authors": "Lin et al.",
+          "description": "逆动力学增强导航：利用逆动力学模型从视频观测中推断动作标签，大规模扩展导航训练数据。提供了一种低成本的数据增强方法。",
+          "tags": [
+            "Model"
+          ],
+          "milestone": false
+        },
+        {
+          "date": "2026-03",
+          "title": "HUGE-Bench",
+          "venue": "arXiv 2026",
+          "authors": "Zhou et al.",
+          "description": "高层级UAV视觉语言动作基准：涵盖4个真实世界场景和8类任务，采用过程导向评估方法系统评估VLA模型在无人机任务中的表现。填补了UAV-VLA评估体系的空白。",
+          "tags": [
+            "Aerial/UAV",
+            "Dataset"
+          ],
+          "milestone": false
+        }
+      ]
+    }
+  ],
+  "benchmarkData": {
+    "r2r": {
+      "cols": [
+        "Method",
+        "Year",
+        "NE↓",
+        "SR↑",
+        "SPL↑"
+      ],
+      "keys": [
+        "method",
+        "year",
+        "ne",
+        "sr",
+        "spl"
+      ],
+      "lower": [
+        "ne"
+      ],
+      "rows": [
+        {
+          "method": "Seq2Seq (Anderson)",
+          "year": 2018,
+          "ne": 7.81,
+          "sr": 22,
+          "spl": 19,
+          "ms": false
+        },
+        {
+          "method": "Speaker-Follower",
+          "year": 2018,
+          "ne": 6.62,
+          "sr": 35,
+          "spl": 28,
+          "ms": true
+        },
+        {
+          "method": "Self-Monitoring",
+          "year": 2019,
+          "ne": 5.67,
+          "sr": 45,
+          "spl": 32,
+          "ms": false
+        },
+        {
+          "method": "EnvDrop",
+          "year": 2019,
+          "ne": 5.22,
+          "sr": 52,
+          "spl": 48,
+          "ms": true
+        },
+        {
+          "method": "PREVALENT",
+          "year": 2020,
+          "ne": 4.71,
+          "sr": 58,
+          "spl": 53,
+          "ms": true
+        },
+        {
+          "method": "VLN-BERT (Hong)",
+          "year": 2021,
+          "ne": 3.93,
+          "sr": 63,
+          "spl": 57,
+          "ms": false
+        },
+        {
+          "method": "HAMT",
+          "year": 2021,
+          "ne": 3.29,
+          "sr": 66,
+          "spl": 61,
+          "ms": true
+        },
+        {
+          "method": "DUET",
+          "year": 2022,
+          "ne": 3.31,
+          "sr": 72,
+          "spl": 60,
+          "ms": true
+        },
+        {
+          "method": "BEVBert",
+          "year": 2022,
+          "ne": 2.81,
+          "sr": 75,
+          "spl": 64,
+          "ms": true
+        },
+        {
+          "method": "ScaleVLN",
+          "year": 2023,
+          "ne": 2.35,
+          "sr": 80,
+          "spl": 73,
+          "ms": true
+        },
+        {
+          "method": "Airbert",
+          "year": 2021,
+          "ne": 4.01,
+          "sr": 62,
+          "spl": 56,
+          "ms": false
+        },
+        {
+          "method": "HOP",
+          "year": 2022,
+          "ne": 3.8,
+          "sr": 64,
+          "spl": 57,
+          "ms": false
+        },
+        {
+          "method": "CLIP-ViL",
+          "year": 2022,
+          "ne": 3.55,
+          "sr": 68,
+          "spl": 60,
+          "ms": false
+        }
+      ]
+    },
+    "reverie": {
+      "cols": [
+        "Method",
+        "Year",
+        "SR↑",
+        "SPL↑",
+        "RGS↑"
+      ],
+      "keys": [
+        "method",
+        "year",
+        "sr",
+        "spl",
+        "rgs"
+      ],
+      "lower": [],
+      "rows": [
+        {
+          "method": "RecBERT",
+          "year": 2021,
+          "sr": 30.67,
+          "spl": 24.9,
+          "rgs": 18.77,
+          "ms": false
+        },
+        {
+          "method": "HAMT",
+          "year": 2021,
+          "sr": 32.95,
+          "spl": 30.2,
+          "rgs": 18.92,
+          "ms": true
+        },
+        {
+          "method": "DUET",
+          "year": 2022,
+          "sr": 46.98,
+          "spl": 33.73,
+          "rgs": 32.15,
+          "ms": true
+        },
+        {
+          "method": "BEVBert",
+          "year": 2022,
+          "sr": 51.78,
+          "spl": 36.47,
+          "rgs": 34.71,
+          "ms": true
+        },
+        {
+          "method": "ScaleVLN",
+          "year": 2023,
+          "sr": 55.01,
+          "spl": 41.23,
+          "rgs": 37.89,
+          "ms": true
+        },
+        {
+          "method": "Airbert",
+          "year": 2021,
+          "sr": 27.89,
+          "spl": 21.88,
+          "rgs": 18.23,
+          "ms": false
+        }
+      ]
+    },
+    "vlnce": {
+      "cols": [
+        "Method",
+        "Year",
+        "NE↓",
+        "SR↑",
+        "SPL↑"
+      ],
+      "keys": [
+        "method",
+        "year",
+        "ne",
+        "sr",
+        "spl"
+      ],
+      "lower": [
+        "ne"
+      ],
+      "rows": [
+        {
+          "method": "CMA (Baseline)",
+          "year": 2020,
+          "ne": 7.6,
+          "sr": 24,
+          "spl": 19,
+          "ms": false
+        },
+        {
+          "method": "Waypoint Model",
+          "year": 2021,
+          "ne": 6.31,
+          "sr": 35,
+          "spl": 30,
+          "ms": false
+        },
+        {
+          "method": "BEVBert",
+          "year": 2022,
+          "ne": 5.17,
+          "sr": 48,
+          "spl": 41,
+          "ms": true
+        },
+        {
+          "method": "ETPNav",
+          "year": 2023,
+          "ne": 4.71,
+          "sr": 55,
+          "spl": 49,
+          "ms": true
+        },
+        {
+          "method": "NaVid",
+          "year": 2024,
+          "ne": 5.47,
+          "sr": 44,
+          "spl": 37,
+          "ms": true
+        },
+        {
+          "method": "Sim2Real (Anderson)",
+          "year": 2020,
+          "ne": 7.1,
+          "sr": 28,
+          "spl": 23,
+          "ms": false
+        }
+      ]
+    },
+    "rxr": {
+      "cols": [
+        "Method",
+        "Year",
+        "SR↑",
+        "nDTW↑",
+        "SDTW↑"
+      ],
+      "keys": [
+        "method",
+        "year",
+        "sr",
+        "ndtw",
+        "sdtw"
+      ],
+      "lower": [],
+      "rows": [
+        {
+          "method": "HAMT",
+          "year": 2021,
+          "sr": 36,
+          "ndtw": 51,
+          "sdtw": 28,
+          "ms": true
+        },
+        {
+          "method": "DUET",
+          "year": 2022,
+          "sr": 42,
+          "ndtw": 55,
+          "sdtw": 33,
+          "ms": true
+        },
+        {
+          "method": "BEVBert",
+          "year": 2022,
+          "sr": 48,
+          "ndtw": 60,
+          "sdtw": 38,
+          "ms": true
+        },
+        {
+          "method": "ScaleVLN",
+          "year": 2023,
+          "sr": 54,
+          "ndtw": 64,
+          "sdtw": 43,
+          "ms": true
+        }
+      ]
+    }
+  },
+  "sotaSeries": [
+    {
+      "name": "R2R",
+      "color": "#39d2c0",
+      "data": [
+        {
+          "y": "2018",
+          "m": "Seq2Seq",
+          "v": 22
+        },
+        {
+          "y": "2018",
+          "m": "SF",
+          "v": 35
+        },
+        {
+          "y": "2019",
+          "m": "EnvDrop",
+          "v": 52
+        },
+        {
+          "y": "2020",
+          "m": "PREVALENT",
+          "v": 58
+        },
+        {
+          "y": "2021",
+          "m": "HAMT",
+          "v": 66
+        },
+        {
+          "y": "2022",
+          "m": "DUET",
+          "v": 72
+        },
+        {
+          "y": "2022",
+          "m": "BEVBert",
+          "v": 75
+        },
+        {
+          "y": "2023",
+          "m": "ScaleVLN",
+          "v": 80
+        }
+      ]
+    },
+    {
+      "name": "REVERIE",
+      "color": "#f778ba",
+      "data": [
+        {
+          "y": "2021",
+          "m": "HAMT",
+          "v": 33
+        },
+        {
+          "y": "2022",
+          "m": "DUET",
+          "v": 47
+        },
+        {
+          "y": "2022",
+          "m": "BEVBert",
+          "v": 52
+        },
+        {
+          "y": "2023",
+          "m": "ScaleVLN",
+          "v": 55
+        }
+      ]
+    },
+    {
+      "name": "VLN-CE",
+      "color": "#f0883e",
+      "data": [
+        {
+          "y": "2020",
+          "m": "CMA",
+          "v": 24
+        },
+        {
+          "y": "2021",
+          "m": "WPM",
+          "v": 35
+        },
+        {
+          "y": "2022",
+          "m": "BEVBert",
+          "v": 48
+        },
+        {
+          "y": "2023",
+          "m": "ETPNav",
+          "v": 55
+        },
+        {
+          "y": "2024",
+          "m": "NaVid",
+          "v": 44
+        }
+      ]
+    }
+  ],
+  "lineages": [
+    {
+      "title": "核心 VLN 模型演进 (R2R Track)",
+      "color": "#58a6ff",
+      "nodes": [
+        {
+          "n": "R2R",
+          "y": "'18",
+          "ms": 1
+        },
+        {
+          "n": "Speaker-Follower",
+          "y": "'18",
+          "ms": 1
+        },
+        {
+          "n": "EnvDrop",
+          "y": "'19",
+          "ms": 1
+        },
+        {
+          "n": "PREVALENT",
+          "y": "'20",
+          "ms": 1
+        },
+        {
+          "n": "VLN-BERT",
+          "y": "'21",
+          "ms": 0
+        },
+        {
+          "n": "HAMT",
+          "y": "'21",
+          "ms": 1
+        },
+        {
+          "n": "DUET",
+          "y": "'22",
+          "ms": 1
+        },
+        {
+          "n": "BEVBert",
+          "y": "'22",
+          "ms": 1
+        },
+        {
+          "n": "ScaleVLN",
+          "y": "'23",
+          "ms": 1
+        }
+      ]
+    },
+    {
+      "title": "连续环境 (VLN-CE Track)",
+      "color": "#f0883e",
+      "nodes": [
+        {
+          "n": "VLN-CE",
+          "y": "'20",
+          "ms": 1
+        },
+        {
+          "n": "Waypoint Models",
+          "y": "'21",
+          "ms": 0
+        },
+        {
+          "n": "ETPNav",
+          "y": "'23",
+          "ms": 1
+        },
+        {
+          "n": "NaVid",
+          "y": "'24",
+          "ms": 1
+        }
+      ]
+    },
+    {
+      "title": "LLM/VLA 范式",
+      "color": "#f778ba",
+      "nodes": [
+        {
+          "n": "LM-Nav",
+          "y": "'22",
+          "ms": 1
+        },
+        {
+          "n": "NavGPT",
+          "y": "'23",
+          "ms": 1
+        },
+        {
+          "n": "NaviLLM",
+          "y": "'23",
+          "ms": 1
+        },
+        {
+          "n": "NaVid",
+          "y": "'24",
+          "ms": 1
+        },
+        {
+          "n": "Uni-NaVid",
+          "y": "'24",
+          "ms": 1
+        },
+        {
+          "n": "VLingNav",
+          "y": "'26",
+          "ms": 1
+        }
+      ]
+    },
+    {
+      "title": "无人机 VLN (Aerial/UAV Track)",
+      "color": "#d29922",
+      "nodes": [
+        {
+          "n": "AerialVLN",
+          "y": "'23",
+          "ms": 1
+        },
+        {
+          "n": "CityNav",
+          "y": "'24",
+          "ms": 1
+        },
+        {
+          "n": "OpenUAV",
+          "y": "'25",
+          "ms": 1
+        },
+        {
+          "n": "IndoorUAV",
+          "y": "'25",
+          "ms": 1
+        },
+        {
+          "n": "NVILA-UAV",
+          "y": "'26",
+          "ms": 1
+        }
+      ]
+    },
+    {
+      "title": "语义地图与场景图",
+      "color": "#56d4dd",
+      "nodes": [
+        {
+          "n": "VLMaps",
+          "y": "'22",
+          "ms": 1
+        },
+        {
+          "n": "SayNav",
+          "y": "'23",
+          "ms": 0
+        },
+        {
+          "n": "SG-Nav",
+          "y": "'24",
+          "ms": 0
+        },
+        {
+          "n": "MSGNav",
+          "y": "'25",
+          "ms": 0
+        }
+      ]
+    },
+    {
+      "title": "数据集演进 (Benchmark Track)",
+      "color": "#bc8cff",
+      "nodes": [
+        {
+          "n": "Matterport3D",
+          "y": "'17",
+          "ms": 1
+        },
+        {
+          "n": "R2R",
+          "y": "'18",
+          "ms": 1
+        },
+        {
+          "n": "REVERIE",
+          "y": "'20",
+          "ms": 0
+        },
+        {
+          "n": "RxR",
+          "y": "'20",
+          "ms": 0
+        },
+        {
+          "n": "ALFRED",
+          "y": "'20",
+          "ms": 1
+        },
+        {
+          "n": "CVDN",
+          "y": "'19",
+          "ms": 1
+        },
+        {
+          "n": "ScaleVLN (4.9M)",
+          "y": "'23",
+          "ms": 1
+        }
+      ]
+    }
+  ],
+  "surveys": [
+    {
+      "title": "Vision-and-Language Navigation: A Survey of Tasks, Methods, and Future Directions",
+      "auth": "Gu et al.",
+      "year": 2022,
+      "venue": "AI Open",
+      "url": "https://arxiv.org/abs/2203.12667",
+      "desc": "最全面的VLN综述，涵盖任务定义、方法分类、数据集和评估指标。推荐作为入门必读。"
+    },
+    {
+      "title": "A Survey of Embodied AI: From Simulators to Research Tasks",
+      "auth": "Duan et al.",
+      "year": 2022,
+      "venue": "IEEE TETCI",
+      "url": "https://arxiv.org/abs/2103.04918",
+      "desc": "具身智能广义综述，涵盖仿真平台、导航、操作等多个方向。适合了解VLN在具身智能中的位置。"
+    },
+    {
+      "title": "Vision-Language Navigation: A Survey and Taxonomy",
+      "auth": "Zhang et al.",
+      "year": 2024,
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2404.07849",
+      "desc": "较新的VLN综述，增加了LLM时代的方法分类和最新进展。"
+    },
+    {
+      "title": "A Survey on LLM-based Autonomous Agents for Embodied AI",
+      "auth": "Liu et al.",
+      "year": 2025,
+      "venue": "arXiv",
+      "url": "https://arxiv.org/abs/2501.09628",
+      "desc": "聚焦大语言模型驱动的具身智能体，涵盖导航、操作、多智能体协作。"
+    }
+  ],
+  "readingPaths": [
+    {
+      "level": "入门 · Beginner",
+      "title": "基础概念与任务",
+      "items": [
+        [
+          "R2R (Anderson et al., 2018)",
+          "了解VLN任务定义与基线"
+        ],
+        [
+          "Speaker-Follower (Fried, 2018)",
+          "数据增强与全景动作空间"
+        ],
+        [
+          "Gu et al. Survey (2022)",
+          "全面了解领域全景"
+        ],
+        [
+          "Matterport3D (Chang, 2017)",
+          "了解底层数据基础"
+        ]
+      ]
+    },
+    {
+      "level": "进阶 · Intermediate",
+      "title": "核心方法与预训练",
+      "items": [
+        [
+          "EnvDrop (Tan, 2019)",
+          "经典数据增强方法"
+        ],
+        [
+          "PREVALENT (Hao, 2020)",
+          "预训练范式开创"
+        ],
+        [
+          "HAMT (Chen, 2021)",
+          "Transformer架构里程碑"
+        ],
+        [
+          "VLN-CE (Krantz, 2020)",
+          "连续环境扩展"
+        ],
+        [
+          "DUET (Chen, 2022)",
+          "拓扑图规划"
+        ]
+      ]
+    },
+    {
+      "level": "前沿 · Advanced",
+      "title": "最新范式与开放问题",
+      "items": [
+        [
+          "ScaleVLN (Wang, 2023)",
+          "数据规模的力量"
+        ],
+        [
+          "NavGPT (Zhou, 2023)",
+          "LLM导航范式"
+        ],
+        [
+          "NaVid (Zhang, 2024)",
+          "视频VLM导航"
+        ],
+        [
+          "BEVBert (An, 2022)",
+          "BEV预训练"
+        ],
+        [
+          "ETPNav (An, 2023)",
+          "演化拓扑规划"
+        ],
+        [
+          "VLingNav (Wang, 2026)",
+          "CoT推理导航"
+        ]
+      ]
+    }
+  ],
+  "glossary": [
+    {
+      "t": "VLN",
+      "f": "Vision-and-Language Navigation",
+      "d": "视觉语言导航，智能体根据自然语言指令和视觉观测在环境中导航。"
+    },
+    {
+      "t": "SR",
+      "f": "Success Rate",
+      "d": "成功率，智能体最终停止位置距目标<3m的比例。VLN最基本的评估指标。"
+    },
+    {
+      "t": "SPL",
+      "f": "Success weighted by Path Length",
+      "d": "路径长度加权成功率，同时考虑导航效率，惩罚冗余路径。取值0-1，越高越好。"
+    },
+    {
+      "t": "NE",
+      "f": "Navigation Error",
+      "d": "导航误差，智能体最终位置与目标的平均欧氏距离（米）。越低越好。"
+    },
+    {
+      "t": "nDTW",
+      "f": "normalized Dynamic Time Warping",
+      "d": "归一化动态时间规整，衡量实际路径与参考路径的相似度。关注路径保真度而非仅仅终点。"
+    },
+    {
+      "t": "CLS",
+      "f": "Coverage weighted by Length Score",
+      "d": "覆盖加权路径长度得分，综合考虑路径覆盖率和路径长度效率。"
+    },
+    {
+      "t": "RGS",
+      "f": "Remote Grounding Success",
+      "d": "远程指代定位成功率，REVERIE任务专用指标，要求导航+物体定位同时成功。"
+    },
+    {
+      "t": "BEV",
+      "f": "Bird's-Eye View",
+      "d": "鸟瞄图表示，从上方俯视场景的空间表示。常用于构建环境度量地图。"
+    },
+    {
+      "t": "ObjectNav",
+      "f": "Object Goal Navigation",
+      "d": "目标物体导航，给定目标类别（如“椅子”），导航到该类物体的任意实例。"
+    },
+    {
+      "t": "PointNav",
+      "f": "Point Goal Navigation",
+      "d": "点目标导航，给定目标坐标（相对位置），导航到该位置。最基础的导航任务。"
+    },
+    {
+      "t": "Sim2Real",
+      "f": "Simulation to Real-world Transfer",
+      "d": "仿真到真实迁移，将仿真环境中训练的模型部署到真实机器人上。"
+    },
+    {
+      "t": "SLAM",
+      "f": "Simultaneous Localization and Mapping",
+      "d": "同时定位与建图，机器人在未知环境中同时构建地图并定位自身。"
+    },
+    {
+      "t": "VLA",
+      "f": "Vision-Language-Action Model",
+      "d": "视觉-语言-动作模型，统一处理视觉输入、语言指令和动作输出的端到端模型。"
+    },
+    {
+      "t": "CoT",
+      "f": "Chain-of-Thought",
+      "d": "思维链推理，让模型生成中间推理步骤而非直接输出答案，提升复杂任务的决策质量。"
+    },
+    {
+      "t": "Topological Map",
+      "f": "",
+      "d": "拓扑地图，用图结构表示环境中的可达节点和连接关系，用于高层导航规划。"
+    },
+    {
+      "t": "Panoramic Action Space",
+      "f": "",
+      "d": "全景动作空间，智能体观察360°全景并直接选择下一个可见节点，替代离散的“前进/左转/右转”。"
+    },
+    {
+      "t": "Waypoint",
+      "f": "",
+      "d": "航路点/航点，导航中的中间目标点，将长程导航分解为多个短程子目标。"
+    },
+    {
+      "t": "R2R",
+      "f": "Room-to-Room",
+      "d": "最经典的VLN数据集，基于Matterport3D的导航指令数据集，包含21,567条指令。"
+    },
+    {
+      "t": "VLN-CE",
+      "f": "VLN Continuous Environments",
+      "d": "VLN连续环境版本，智能体执行低层控制动作（前进0.25m、转向），更接近真实机器人。"
+    }
+  ]
+}
