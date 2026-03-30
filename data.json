@@ -1439,13 +1439,13 @@
           "title": "ProFocus: Proactive Perception and Focused Reasoning in Vision-and-Language Navigation",
           "venue": "arXiv 2026",
           "authors": "Xue et al.",
-          "description": "<strong>免训练渐进式主动感知与聚焦推理</strong>：将全景观测结构化为自我中心语义地图，由编排智能体生成针对性视觉查询与关注区域；并提出分支多样化蒙特卡洛树搜索（BD-MCTS）从历史航点中筛选高价值候选，使决策仅聚焦关键上下文。在R2R与REVERIE上达到零样本方法SOTA。",
+          "description": "<strong>免训练渐进式主动感知与聚焦推理</strong>：将全景观测结构化为自我中心语义地图，由编排智能体生成针对性视觉查询与关注区域；并提出分支多样化蒙特卡洛树搜索（BD-MCTS）从历史航点中筛选高价值候选，使决策仅聚焦关键上下文。论文报告在R2R与REVERIE上较强的零样本表现（待同行评议复核）。",
           "tags": [
             "LLM/VLA",
             "Mapping",
             "Model"
           ],
-          "milestone": true,
+          "milestone": false,
           "paper_url": "https://arxiv.org/abs/2603.05530",
           "concepts": [
             "BD-MCTS",
@@ -1539,13 +1539,13 @@
           "title": "P³Nav: End-to-End Perception, Prediction and Planning for Vision-and-Language Navigation",
           "venue": "arXiv 2026",
           "authors": "Li et al.",
-          "description": "将VLN拆解为<strong>感知—预测—规划一体管线</strong>：从物体级与地图级双视角增强场景理解，预测未来航点以显式建模可达候选，并进一步预测语义地图线索支撑前瞻规划，减轻对纯历史上下文的依赖。在REVERIE、R2R-CE与RxR-CE上取得新的SOTA表现。",
+          "description": "将VLN拆解为<strong>感知—预测—规划一体管线</strong>：从物体级与地图级双视角增强场景理解，预测未来航点以显式建模可达候选，并进一步预测语义地图线索支撑前瞻规划，减轻对纯历史上下文的依赖。论文报告在REVERIE、R2R-CE与RxR-CE上较强结果（分阶段模块与预测式规划思路清晰，是否构成领域里程碑待正式发表与复现检验）。",
           "tags": [
             "Model",
             "Continuous Env",
             "Mapping"
           ],
-          "milestone": true,
+          "milestone": false,
           "paper_url": "https://arxiv.org/abs/2603.17459",
           "concepts": [
             "Perception-Prediction-Planning",
