@@ -1121,19 +1121,6 @@
         },
         {
           "date": "2025-01",
-          "title": "MossVLN: Memory-Observation Synergistic System for Continuous Vision-Language Navigation",
-          "venue": "IEEE TMM 2025",
-          "authors": "Yu et al.",
-          "description": "提出<strong>记忆-观测协同框架</strong>，联合历史记忆与当前观测进行航路点预测和决策，在VLN-CE与R2R-CE上显著提升SR/SPL。该工作强化了连续环境下长期依赖建模能力。",
-          "tags": [
-            "Continuous Env",
-            "Model"
-          ],
-          "milestone": false,
-          "paper_url": "https://doi.org/10.1109/TMM.2025.3586105"
-        },
-        {
-          "date": "2025-01",
           "title": "UAV-VLA",
           "venue": "HRI 2025",
           "authors": "Sautenich et al.",
@@ -1229,20 +1216,6 @@
           "milestone": false
         },
         {
-          "date": "2025-04",
-          "title": "Affordances-Oriented Planning Using Foundation Models for Continuous Vision-Language Navigation",
-          "venue": "AAAI 2025",
-          "authors": "Chen et al.",
-          "description": "面向VLN-CE提出<strong>可供性驱动规划</strong>，将视觉可行区域估计、LLM航点推理与低层路径执行联动起来，实现更稳定的长程决策，在R2R-CE与RxR-CE上达到领先表现。",
-          "tags": [
-            "LLM/VLA",
-            "Continuous Env",
-            "Model"
-          ],
-          "milestone": false,
-          "paper_url": "https://doi.org/10.1609/aaai.v39i22.34526"
-        },
-        {
           "date": "2025-05",
           "title": "CityNavAgent",
           "venue": "ACL 2025",
@@ -1311,27 +1284,13 @@
             "Model"
           ],
           "milestone": false
-        },
-        {
-          "date": "2025-07",
-          "title": "Constraint-Aware Zero-Shot Vision-Language Navigation in Continuous Environments",
-          "venue": "IEEE TPAMI 2025",
-          "authors": "Chen et al.",
-          "description": "提出零样本连续导航方法CA-Nav，将复杂指令分解为约束子目标并结合双阶段约束推理，显著提升未见环境泛化，在R2R-CE与RxR-CE验证集上取得强竞争结果。",
-          "tags": [
-            "Zero-Shot",
-            "Continuous Env",
-            "Model"
-          ],
-          "milestone": false,
-          "paper_url": "https://doi.org/10.1109/TPAMI.2025.3594204"
         }
       ]
     },
     {
       "id": "era8",
       "title": "最新前沿",
-      "subtitle": "2025.9–2026.3 · 推理链、统一框架与评估体系",
+      "subtitle": "2025.9–2026.3 · 主动感知、智能体范式与端到端规划",
       "papers": [
         {
           "date": "2025-09",
@@ -1449,6 +1408,77 @@
           ]
         },
         {
+          "date": "2026-02",
+          "title": "VISOR: VIsual Spatial Object Reasoning for Language-driven Object Navigation",
+          "venue": "arXiv 2026",
+          "authors": "Taioli et al.",
+          "description": "面向语言驱动物体导航的紧凑约3B参数VLA智能体，以<strong>显式图像接地推理</strong>替代纯嵌入匹配，通过“思考—摘要—动作”三阶段同时回答目标判定与动作理由，提升可解释性与泛化，避免多模型拼接链路的误差传播与高算力开销。",
+          "tags": [
+            "ObjectNav",
+            "LLM/VLA",
+            "Model"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/2602.07555"
+        },
+        {
+          "date": "2026-02",
+          "title": "Learning to Retrieve Navigable Candidates for Efficient Vision-and-Language Navigation",
+          "venue": "arXiv 2026",
+          "authors": "Gu et al.",
+          "description": "无需改动底层LLM的<strong>双层检索增强VLN</strong>：轨迹级检索选取语义相近的成功演示作上下文示例，步级模仿学习检索器在推理前剪枝不可达候选，降低提示噪声与动作歧义，在R2R上稳定提升SR与SPL，为高效LLM导航提供可扩展范式。",
+          "tags": [
+            "LLM/VLA",
+            "Model"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/2602.15724"
+        },
+        {
+          "date": "2026-03",
+          "title": "ProFocus: Proactive Perception and Focused Reasoning in Vision-and-Language Navigation",
+          "venue": "arXiv 2026",
+          "authors": "Xue et al.",
+          "description": "<strong>免训练渐进式主动感知与聚焦推理</strong>：将全景观测结构化为自我中心语义地图，由编排智能体生成针对性视觉查询与关注区域；并提出分支多样化蒙特卡洛树搜索（BD-MCTS）从历史航点中筛选高价值候选，使决策仅聚焦关键上下文。在R2R与REVERIE上达到零样本方法SOTA。",
+          "tags": [
+            "LLM/VLA",
+            "Mapping",
+            "Model"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/2603.05530",
+          "concepts": [
+            "BD-MCTS",
+            "Ego-centric Semantic Map"
+          ]
+        },
+        {
+          "date": "2026-03",
+          "title": "CMMR-VLN: Vision-and-Language Navigation via Continual Multimodal Memory Retrieval",
+          "venue": "arXiv 2026",
+          "authors": "Li et al.",
+          "description": "为LLM-VLN构建<strong>持续多模态经验记忆</strong>：以全景图与显著地标索引可检索记忆，结合RAG式利用与反思式更新（成功路径全存、失败存关键初始失误），使智能体像熟手一样调用先验。在仿真与真实测试中相对NavGPT、MapGPT、DiscussNav等基线大幅提升成功率。",
+          "tags": [
+            "LLM/VLA",
+            "Model"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/2603.07997"
+        },
+        {
+          "date": "2026-03",
+          "title": "DecoVLN: Decoupling Observation, Reasoning, and Correction for Vision-and-Language Navigation",
+          "venue": "arXiv 2026",
+          "authors": "Xin et al.",
+          "description": "面向长程VLN的<strong>观测—推理—校正解耦</strong>：用统一评分自适应精炼历史帧池以平衡指令相关性、视觉多样性与时序覆盖，构建高质量长期记忆；并以测地距离度量的状态—动作对级纠错微调，在可信区域收集数据、过滤污染样本抑制误差累积，并已部署真实环境验证。",
+          "tags": [
+            "Continuous Env",
+            "Model"
+          ],
+          "milestone": false,
+          "paper_url": "https://arxiv.org/abs/2603.13133"
+        },
+        {
           "date": "2026-03",
           "title": "VL-Nav (Neuro-Symbolic Navigation)",
           "venue": "arXiv 2026",
@@ -1503,6 +1533,45 @@
             "Dataset"
           ],
           "milestone": false
+        },
+        {
+          "date": "2026-03",
+          "title": "P³Nav: End-to-End Perception, Prediction and Planning for Vision-and-Language Navigation",
+          "venue": "arXiv 2026",
+          "authors": "Li et al.",
+          "description": "将VLN拆解为<strong>感知—预测—规划一体管线</strong>：从物体级与地图级双视角增强场景理解，预测未来航点以显式建模可达候选，并进一步预测语义地图线索支撑前瞻规划，减轻对纯历史上下文的依赖。在REVERIE、R2R-CE与RxR-CE上取得新的SOTA表现。",
+          "tags": [
+            "Model",
+            "Continuous Env",
+            "Mapping"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/2603.17459",
+          "concepts": [
+            "Perception-Prediction-Planning",
+            "Proactive Semantic Map"
+          ]
+        },
+        {
+          "date": "2026-03",
+          "title": "AgentVLN: Towards Agentic Vision-and-Language Navigation",
+          "venue": "arXiv 2026",
+          "authors": "Xin et al.",
+          "description": "<strong>VLM-as-Brain 与可插拔技能库</strong>将高层语义推理与感知规划解耦，以跨空间表示映射把3D拓扑航点对齐到图像平面生成像素级视觉提示；结合上下文感知自校正与主动探索，并提出查询驱动的感知思维链（QD-PCoT）主动获取几何深度。构建AgentVLN-Instruct大规模指令数据，在长程VLN基准上超越此前SOTA并面向边缘部署。",
+          "tags": [
+            "LLM/VLA",
+            "Model",
+            "Sim2Real"
+          ],
+          "milestone": true,
+          "paper_url": "https://arxiv.org/abs/2603.17670",
+          "code_url": "https://github.com/Allenxinn/AgentVLN",
+          "affiliation": "NWPU",
+          "concepts": [
+            "POSMDP",
+            "QD-PCoT",
+            "Cross-space Waypoint Mapping"
+          ]
         }
       ]
     }
