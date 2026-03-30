@@ -1121,6 +1121,19 @@
         },
         {
           "date": "2025-01",
+          "title": "MossVLN: Memory-Observation Synergistic System for Continuous Vision-Language Navigation",
+          "venue": "IEEE TMM 2025",
+          "authors": "Yu et al.",
+          "description": "提出<strong>记忆-观测协同框架</strong>，联合历史记忆与当前观测进行航路点预测和决策，在VLN-CE与R2R-CE上显著提升SR/SPL。该工作强化了连续环境下长期依赖建模能力。",
+          "tags": [
+            "Continuous Env",
+            "Model"
+          ],
+          "milestone": false,
+          "paper_url": "https://doi.org/10.1109/TMM.2025.3586105"
+        },
+        {
+          "date": "2025-01",
           "title": "UAV-VLA",
           "venue": "HRI 2025",
           "authors": "Sautenich et al.",
@@ -1216,6 +1229,20 @@
           "milestone": false
         },
         {
+          "date": "2025-04",
+          "title": "Affordances-Oriented Planning Using Foundation Models for Continuous Vision-Language Navigation",
+          "venue": "AAAI 2025",
+          "authors": "Chen et al.",
+          "description": "面向VLN-CE提出<strong>可供性驱动规划</strong>，将视觉可行区域估计、LLM航点推理与低层路径执行联动起来，实现更稳定的长程决策，在R2R-CE与RxR-CE上达到领先表现。",
+          "tags": [
+            "LLM/VLA",
+            "Continuous Env",
+            "Model"
+          ],
+          "milestone": false,
+          "paper_url": "https://doi.org/10.1609/aaai.v39i22.34526"
+        },
+        {
           "date": "2025-05",
           "title": "CityNavAgent",
           "venue": "ACL 2025",
@@ -1284,6 +1311,20 @@
             "Model"
           ],
           "milestone": false
+        },
+        {
+          "date": "2025-07",
+          "title": "Constraint-Aware Zero-Shot Vision-Language Navigation in Continuous Environments",
+          "venue": "IEEE TPAMI 2025",
+          "authors": "Chen et al.",
+          "description": "提出零样本连续导航方法CA-Nav，将复杂指令分解为约束子目标并结合双阶段约束推理，显著提升未见环境泛化，在R2R-CE与RxR-CE验证集上取得强竞争结果。",
+          "tags": [
+            "Zero-Shot",
+            "Continuous Env",
+            "Model"
+          ],
+          "milestone": false,
+          "paper_url": "https://doi.org/10.1109/TPAMI.2025.3594204"
         }
       ]
     },
